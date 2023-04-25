@@ -10,8 +10,8 @@
 
 <body>
     <?php
-    $hola1 = "HOLA";
-    $edad = 12;
+        $hola1 = "HOLA";
+     $edad = 12;
     echo "La edad del usuario es:  $edad";
     ?>
 
