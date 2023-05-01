@@ -66,33 +66,24 @@
 <body>
     <div class="ejercicios">
         <?php
-
-        function escribirT($texto)
-        {
-            echo "<h2>" . $texto . "</h2>";
-        }
-
-
         echo "<h1>Ejercicios secuenciales</h1>";
-
-
         ?>
 
         <ul class="lista1">
-            <li><a href="1.php" target="a">1</a></li>
-            <li><a href="2.php" target="a">2</a></li>
-            <li><a href="3.php" target="a">3</a></li>
-            <li><a href="4.php" target="a">4</a></li>
-            <li><a href="5.php" target="a">5</a></li>
-            <li><a href="6.php" target="a">6</a></li>
-            <li><a href="7.php" target="a">7</a></li>
-            <li><a href="8.php" target="a">8</a></li>
-            <li><a href="9.php" target="a">9</a></li>
-            <li><a href="10.php" target="a">10</a></li>
-            <li><a href="11.php" target="a">11</a></li>
-            <li><a href="12.php" target="a">12</a></li>
-            <li><a href="13.php" target="a">13</a></li>
-            <li><a href="14.php" target="a">14</a></li>
+            <li><a href="ejercicios/1.php" target="a">1</a></li>
+            <li><a href="ejercicios/2.php" target="a">2</a></li>
+            <li><a href="ejercicios/3.php" target="a">3</a></li>
+            <li><a href="ejercicios/4.php" target="a">4</a></li>
+            <li><a href="ejercicios/5.php" target="a">5</a></li>
+            <li><a href="ejercicios/6.php" target="a">6</a></li>
+            <li><a href="ejercicios/7.php" target="a">7</a></li>
+            <li><a href="ejercicios/8.php" target="a">8</a></li>
+            <li><a href="ejercicios/9.php" target="a">9</a></li>
+            <li><a href="ejercicios/10.php" target="a">10</a></li>
+            <li><a href="ejercicios/11.php" target="a">11</a></li>
+            <li><a href="ejercicios/12.php" target="a">12</a></li>
+            <li><a href="ejercicios/13.php" target="a">13</a></li>
+            <li><a href="ejercicios/14.php" target="a">14</a></li>
 
         </ul>
         <iframe src="" width="60%" height="500px" class="iframe1" name="a"></iframe>

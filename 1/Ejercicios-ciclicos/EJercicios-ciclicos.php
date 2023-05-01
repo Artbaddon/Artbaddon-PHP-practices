@@ -87,15 +87,12 @@
 
         ?>
         <ul class="lista1">
-            <li><a href="1.php" target="a">1</a></li>
-            <li><a href="2.php" target="a">2</a></li>
-            <li><a href="3.php" target="a">3</a></li>
-            <li><a href="4.php" target="a">4</a></li>
-            <li><a href="5.php" target="a">5</a></li>
-            <li><a href="6.php" target="a">6</a></li>
-
-
-
+            <li><a href="ejercicios/1.php" target="a">1</a></li>
+            <li><a href="ejercicios/2.php" target="a">2</a></li>
+            <li><a href="ejercicios/3.php" target="a">3</a></li>
+            <li><a href="ejercicios/4.php" target="a">4</a></li>
+            <li><a href="ejercicios/5.php" target="a">5</a></li>
+            <li><a href="ejercicios/6.php" target="a">6</a></li>
         </ul>
         <iframe src="" width="60%" height="500px" class="iframe1" name="a"></iframe>
 
