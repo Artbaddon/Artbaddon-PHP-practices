@@ -11,15 +11,37 @@
 
 <body>
     <div class="ejercicios">
+
+        <h2>Ejercicio 8</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num1">
+                    <h2>Cuantos miles de pesos desea cambiar?</h2>
+                </label>
+                <input type="text" name="pesos" id="pesos">
+                <input type="submit" value="ENVIAR" class="enviar">
+
+            </form>
+        </div>
         <?php
 
         include 'funciones.php';
 
-        escribirT("Ejercicio 8");
-        $a = rand(1000, 1000000);
-        $d = $a / 2000;
-        $e = $a / 3000;
-        texto("$a pesos colombianos equivalen a: $d usd y $e eur ");
+        escribirT("Solucion:");
+
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $a = $_REQUEST['pesos'];
+            $d = $a / 2000;
+            $e = $a / 3000;
+            if (empty($a)) {
+                texto("Por favor ingrese un valor");
+            } else {
+                texto("$a pesos colombianos equivalen a: $d usd y $e eur ");
+            }
+        }
+
+
 
 
         ?>

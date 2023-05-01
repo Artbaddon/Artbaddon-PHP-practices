@@ -7,12 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios condicionales</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-image: url(img/anime-one-piece-zoro-roronoa-wallpaper-f99078fd418a8d7b9687185ff021960d.jpg);
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
             color: white;
 
+        }
+
+        .all {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .lista1 {
@@ -42,13 +57,11 @@
 
             backdrop-filter: blur(100px);
             width: 70%;
-            margin: 0 auto;
-            margin-top: 150px;
             text-align: center;
             text-shadow: 2px 2px black;
-
-
+            box-shadow: 0 0 20px 3px black;
         }
+
 
         .ejercicios h1 {
             color: white;
@@ -64,46 +77,30 @@
 </head>
 
 <body>
-    <div class="ejercicios">
-        <?php
-        function espacio($num)
-        {
+    <div class="all">
+        <div class="ejercicios">
+            <?php
+            include 'ejercicios/funciones.php';
+            echo "<h1>Ejercicios condicionales</h1>";
 
-            for ($i = 0; $i < $num; $i++) {
-                echo "<br>";
-            }
-        }
+            ?>
+            <ul class="lista1">
+                <li><a href="ejercicios/1.php" target="a">1</a></li>
+                <li><a href="ejercicios/2.php" target="a">2</a></li>
+                <li><a href="ejercicios/3.php" target="a">3</a></li>
+                <li><a href="ejercicios/4.php" target="a">4</a></li>
+                <li><a href="ejercicios/5.php" target="a">5</a></li>
+                <li><a href="ejercicios/6.php" target="a">6</a></li>
+                <li><a href="ejercicios/7.php" target="a">7</a></li>
+                <li><a href="ejercicios/8.php" target="a">8</a></li>
+                <li><a href="ejercicios/9.php" target="a">9</a></li>
+                <li><a href="ejercicios/10.php" target="a">10</a></li>
+                <li><a href="ejercicios/11.php" target="a">11</a></li>
 
-        function escribirT($texto)
-        {
-            echo "<h2>" . $texto . "</h2>";
-        }
+            </ul>
+            <iframe src="" width="60%" height="500px" class="iframe1" name="a"></iframe>
 
-        function texto($texto)
-        {
-            echo $texto;
-
-            espacio(2);
-        }
-        echo "<h1>Ejercicios condicionales</h1>";
-
-        ?>
-        <ul class="lista1">
-            <li><a href="ejercicios/1.php" target="a">1</a></li>
-            <li><a href="ejercicios/2.php" target="a">2</a></li>
-            <li><a href="ejercicios/3.php" target="a">3</a></li>
-            <li><a href="ejercicios/4.php" target="a">4</a></li>
-            <li><a href="ejercicios/5.php" target="a">5</a></li>
-            <li><a href="ejercicios/6.php" target="a">6</a></li>
-            <li><a href="ejercicios/7.php" target="a">7</a></li>
-            <li><a href="ejercicios/8.php" target="a">8</a></li>
-            <li><a href="ejercicios/9.php" target="a">9</a></li>
-            <li><a href="ejercicios/10.php" target="a">10</a></li>
-            <li><a href="ejercicios/11.php" target="a">11</a></li>
-
-        </ul>
-        <iframe src="" width="60%" height="500px" class="iframe1" name="a"></iframe>
-
+        </div>
     </div>
 </body>
 

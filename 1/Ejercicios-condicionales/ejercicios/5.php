@@ -11,21 +11,51 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 5</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="select">
+                    <h2>Que desea comprar?</h2>
+                </label>
+                <select name="select" id="select">
+                    <option value="pera">Pera</option>
+                    <option value="manzana">Manzana</option>
+                </select>
+                <label for="num1">
+                    <h2>¿Cuantos kilos desea comprar?</h2>
+                </label>
+                <input type="text" name="num1" id="num1">
+
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
+
         <?php
 
         include 'funciones.php';
-        
-        escribirT("Ejercicio 5");
-        $a = rand(0, 1);
-        if ($a == 1) {
-            $b = rand(1, 10);
-            $c = $b * 1500;
-            texto("Usted ha comprado $b kilos de pera<br> para un total de = $c$ <br>GRACIAS POR SU COMPRA");
-        } elseif ($a == 0) {
-            $b = rand(1, 10);
-            $c = $b * 2500;
-            texto("Usted ha comprado $b kilos de manzana<br> para un total de = $c$<br> GRACIAS POR SU COMPRA");
+
+        escribirT("Solucion");
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $a = $_POST['select'];
+
+
+            if (empty($a)) {
+                texto("Inserte valores correctos");
+            }
+            if ($a == 'pera') {
+                $b = $_POST['num1'];
+                $c = $b * 1500;
+                texto("Usted ha comprado $b kilos de pera<br> para un total de = $c$ <br>GRACIAS POR SU COMPRA!");
+            } elseif ($a == 'manzana') {
+                $b = $_POST['num1'];
+                $c = $b * 2500;
+                texto("Usted ha comprado $b kilos de manzana<br> para un total de = $c$<br> GRACIAS POR SU COMPRA!");
+            }
         }
+
+
 
 
         ?>

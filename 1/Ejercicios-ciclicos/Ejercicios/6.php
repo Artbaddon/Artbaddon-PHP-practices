@@ -12,9 +12,38 @@
 <body>
     <div class="ejercicios">
         <?php
+
         include 'funciones.php';
 
+        escribirT("solucion");
 
+        do{
+            $p++;
+        
+        
+            if ($edad>0 and $edad<=12){
+            
+                $acomulador=$acomulador+$peso;
+            
+            }else if ($edad>=13 and $edad<=29){
+            
+                $acomulador=$acomulador+$peso;
+        
+            }else if ($edad>=30 and $edad<=59){
+            
+                $acomulador=$acomulador+$peso;
+            
+            }else {
+            
+                $acomulador=$acomulador+$peso;
+                
+            }
+            
+                $promedio=$acomulador/$p;
+            
+            
+        }while ($p<4);
+        texto("El promedio general es de: $promedio");
         ?>
 
     </div>

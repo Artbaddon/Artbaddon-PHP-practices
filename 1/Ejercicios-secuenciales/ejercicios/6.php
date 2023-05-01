@@ -10,15 +10,36 @@
 </head>
 
 <body>
+
     <div class="ejercicios">
+        <h2>Ejercicio 6</h2>
+        <div class="form">
+
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num1">
+                    <h2>Digite dos numeros cualquiera</h2>
+                </label>
+                <input style="width:50px;" type="text" name="num1" id="num1">
+                <input style="width:50px;" type="text" name="num2" id="num2">
+                <input type="submit" value="ENVIAR" class="enviar">
+
+            </form>
+        </div>
         <?php
-        
+
         include 'funciones.php';
 
-        escribirT("Ejercicio 6");
-        $a = rand(0, 10);
-        $b = rand(0, 10);
-        texto("Los numeros son: $a y $b");
+        escribirT("Solucion:");
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $a = $_REQUEST['num1'];
+            $b = $_REQUEST['num2'];
+            if (empty($a) or empty($b)) {
+                texto("Por favor ingrese dos numeros: ");
+            } else {
+                texto("Los numeros son: $a y $b");
+            }
+        }
+
 
 
 

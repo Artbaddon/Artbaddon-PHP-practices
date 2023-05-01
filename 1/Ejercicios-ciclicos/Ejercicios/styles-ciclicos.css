@@ -1,5 +1,6 @@
 body {
-
+  
+    background-size: 100vh;
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
@@ -8,7 +9,10 @@ body {
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
+    list-style: none;
+    text-align: center;
     width: 20%;
+    line-height: 30px;
 }
 
 .lista1 a {
@@ -27,11 +31,10 @@ body {
 .ejercicios {
 
     backdrop-filter: blur(100px);
-
+    width: 70%;
     margin: 0 auto;
     text-align: center;
     text-shadow: 2px 2px black;
-   
 
 }
 
@@ -43,6 +46,7 @@ body {
 
 .ejercicios h2 {
     color: white;
+    font-size: 5vh;
 
 }
 
@@ -50,37 +54,45 @@ body {
     font-size: 4vh;
 }
 
-form input:not(.enviar,#num1,#num2){
+form input:not(.enviar, #num1, #num2) {
     display: block;
     width: 200px;
     font-size: 1.2em;
     margin: 5% auto;
-
     border: none;
     box-shadow: 0 0 10px black;
     border-radius: 10px;
-}
-
-
-form input#num1,form input#num2{
+  }
+  
+  form select {
+    width: 100px;
+    font-size: 1.2em;
+    margin: 5%;
+    border: none;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+  }
+  
+  form input#num1,
+  form input#num2,
+  form input#num3 {
     display: inline-block;
-    width: 200px;
+    width: 50px;
     font-size: 1.2em;
     margin: 4% auto;
     border: none;
     box-shadow: 0 0 10px black;
     border-radius: 10px;
-
-
-}
-
-form input.enviar{
+  }
+  
+  form input.enviar {
     display: block;
     border: 2px solid black;
     width: 20%;
     font-size: 20px;
     margin: 0 auto;
     border-radius: 10px;
-
-
-}
+  
+  
+  }
+  

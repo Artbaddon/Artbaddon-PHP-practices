@@ -11,20 +11,41 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 1</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num1">
+                    <h2>Ingrese dos numeros</h2>
+                </label>
+                <input type="text" name="num1" id="num1">
+                <input type="text" name="num2" id="num2">
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
         <?php
 
         include 'funciones.php';
 
-        escribirT("Ejercicio 1");
-        $a = rand(1, 100);
-        $b = rand(1, 100);
-        if ($a > $b) {
-            texto("$a > $b");
-        } elseif ($a < $b) {
-            texto("$a < $b");
-        } else {
-            texto("los numeros son iguales");
+        escribirT("Solucion 1");
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $a = $_POST['num1'];
+            $b = $_POST['num2'];
+
+            if (empty($a)) {
+                texto("Inserte valores correctos");
+            } else {
+                if ($a > $b) {
+                    texto("$a > $b");
+                } elseif ($a < $b) {
+                    texto("$a < $b");
+                } else {
+                    texto("los numeros son iguales");
+                }
+            }
         }
+
+
 
 
         ?>

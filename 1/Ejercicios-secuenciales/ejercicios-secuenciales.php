@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios Secuenciales</title>
     <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-image: url(img/wano-wallpaper-i-edited-v0-gaqss5hgbny81.png);
-
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
 
@@ -47,6 +52,7 @@
             margin-top: 150px;
             text-align: center;
             text-shadow: 2px 2px black;
+            box-shadow: 0 0 20px 3px black;
 
         }
 
@@ -64,30 +70,34 @@
 </head>
 
 <body>
-    <div class="ejercicios">
-        <?php
-        echo "<h1>Ejercicios secuenciales</h1>";
-        ?>
+    <div class="all">
+        <div class="ejercicios">
+            <?php
 
-        <ul class="lista1">
-            <li><a href="ejercicios/1.php" target="a">1</a></li>
-            <li><a href="ejercicios/2.php" target="a">2</a></li>
-            <li><a href="ejercicios/3.php" target="a">3</a></li>
-            <li><a href="ejercicios/4.php" target="a">4</a></li>
-            <li><a href="ejercicios/5.php" target="a">5</a></li>
-            <li><a href="ejercicios/6.php" target="a">6</a></li>
-            <li><a href="ejercicios/7.php" target="a">7</a></li>
-            <li><a href="ejercicios/8.php" target="a">8</a></li>
-            <li><a href="ejercicios/9.php" target="a">9</a></li>
-            <li><a href="ejercicios/10.php" target="a">10</a></li>
-            <li><a href="ejercicios/11.php" target="a">11</a></li>
-            <li><a href="ejercicios/12.php" target="a">12</a></li>
-            <li><a href="ejercicios/13.php" target="a">13</a></li>
-            <li><a href="ejercicios/14.php" target="a">14</a></li>
+            echo "<h1>Ejercicios secuenciales</h1>";
 
-        </ul>
-        <iframe src="" width="60%" height="500px" class="iframe1" name="a"></iframe>
+            ?>
 
+            <ul class="lista1">
+                <li><a href="ejercicios/1.php" target="a">1</a></li>
+                <li><a href="ejercicios/2.php" target="a">2</a></li>
+                <li><a href="ejercicios/3.php" target="a">3</a></li>
+                <li><a href="ejercicios/4.php" target="a">4</a></li>
+                <li><a href="ejercicios/5.php" target="a">5</a></li>
+                <li><a href="ejercicios/6.php" target="a">6</a></li>
+                <li><a href="ejercicios/7.php" target="a">7</a></li>
+                <li><a href="ejercicios/8.php" target="a">8</a></li>
+                <li><a href="ejercicios/9.php" target="a">9</a></li>
+                <li><a href="ejercicios/10.php" target="a">10</a></li>
+                <li><a href="ejercicios/11.php" target="a">11</a></li>
+                <li><a href="ejercicios/12.php" target="a">12</a></li>
+                <li><a href="ejercicios/13.php" target="a">13</a></li>
+                <li><a href="ejercicios/14.php" target="a">14</a></li>
+
+            </ul>
+            <iframe src="" width="60%" height="500px" class="iframe1" name="a"></iframe>
+
+        </div>
     </div>
 </body>
 

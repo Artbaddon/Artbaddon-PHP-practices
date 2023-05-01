@@ -11,16 +11,17 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 13</h2>
         <?php
 
         include 'funciones.php';
 
-        escribirT("Ejercicio 13");
+        escribirT("Solucion: ");
         $n = 5;
 
         for ($i = 0; $i < 10; $i++) {
 
-            texto("el numero $n * $i =" . $n * $i);
+            texto("$n * $i = " . $n * $i);
         }
 
 

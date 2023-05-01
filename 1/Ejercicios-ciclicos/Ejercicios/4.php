@@ -14,6 +14,8 @@
         <?php
 
         include 'funciones.php';
+
+        escribirT("Ejercicio 4");
         
         texto("Numeros ascendentes del 1 al 10:<br>");
         for ($i = 0; $i < 10; $i++) {

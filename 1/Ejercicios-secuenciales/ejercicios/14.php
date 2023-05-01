@@ -11,18 +11,41 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 14</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num">
+                    <h2>De que numero desea saber la tabla hasta el 10?</h2>
+                </label>
+                <input type="text" name="num" id="num">
+                <input type="submit" value="ENVIAR" class="enviar">
+
+            </form>
+        </div>
         <?php
 
         include 'funciones.php';
-       
-        escribirT("Ejercicio 14");
-        $n = rand(0, 100);
 
-        for ($i = 0; $i < 10; $i++) {
+        escribirT("Solucion: ");
 
-            texto("el numero $n * $i =" . $n * $i);
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $n = $_POST['num'];
+
+
+            if (empty($n)) {
+                texto("Ingrese un numero por porfavor");
+            } else {
+                for ($i = 0; $i <= 10; $i++) {
+
+                    texto("$n * $i = " . $n * $i);
+                }
+            }
         }
-        
+
+
+
+
 
         ?>
 

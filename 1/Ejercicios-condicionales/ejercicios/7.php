@@ -11,20 +11,41 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 7</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="totalC">
+                    <h2>Ingrese el total de su compra</h2>
+                </label>
+                <input type="text" name="totalC" id="totalC">
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
         <?php
-        
+
         include 'funciones.php';
+        escribirT("Solucion: ");
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $a = $_POST['totalC'];
 
 
-        escribirT("Ejercicio 7");
-        $a = rand(0, 10000);
-        if ($a > 1000) {
-            $b = $a * 0.20;
-            $b = $a - $b;
-            texto("Usted aplica a un descuento, su compra total es de: $a y $b con descuento del 20%");
-        } else {
-            texto("Usted no aplica a un descuento, su compra total es de: $a");
+            if (empty($a)) {
+                texto("Inserte valores correctos");
+            } else {
+                if ($a > 1000) {
+                    $b = $a * 0.20;
+                    $b = $a - $b;
+                    texto("Usted aplica a un descuento, su compra total es de: $a y $b con descuento del 20%");
+                } else {
+                    texto("Usted no aplica a un descuento, su compra total es de: $a");
+                }
+            }
         }
+
+
+        $a = rand(0, 10000);
+
 
 
         ?>

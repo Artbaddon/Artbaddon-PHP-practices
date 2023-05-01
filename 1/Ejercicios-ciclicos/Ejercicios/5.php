@@ -11,18 +11,43 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 5</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num1">
+                    <h2>Ingrese el numero hasta el cual quiera la sumatoria</h2>
+                </label>
+                <input type="text" name="num1" id="num1">
+
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
         <?php
 
         include 'funciones.php';
 
-        $a = rand(1, 100);
-        $i = 0;
-        $sum = 0;
-        texto("Sumatoria numeros hasta: $a");
-        while ($i <= $a) {
-            $sum = $sum + $i;
-            $i++;
-            texto("$sum");
+        escribirT("Solucion");
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $a = $_POST['num1'];
+
+
+
+            texto("Sumatoria numeros hasta: $a");
+
+            if (empty($a)) {
+                texto("Inserte valores correctos");
+            } else {
+                $i = 0;
+                $sum = 0;
+                while ($i <= $a) {
+
+                    $sum = $sum + $i;
+                    $i++;
+                    texto("$sum");
+                }
+            }
         }
         ?>
 

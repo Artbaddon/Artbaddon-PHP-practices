@@ -11,12 +11,13 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 2</h2>
         <?php
 
         include 'funciones.php';
 
 
-        escribirT("Ejercicio 2");
+        escribirT("Solucion:");
         texto("Sebastian Sotelo");
 
         ?>

@@ -11,17 +11,43 @@
 
 <body>
     <div class="ejercicios">
-        <?php
+        <h2>Ejercicio 10</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="grados">
+                    <h2>Cuantso grados celsius desea cambiar?</h2>
+                </label>
+                <input type="text" name="grados" id="grados">
+                <input type="submit" value="ENVIAR" class="enviar">
 
-        include 'funciones.php';
+            </form>
+        </div>
 
-        escribirT("Ejercicio 10");
-        $a = rand(-50, 200);
-        $b = ($a * 9) / 5 + 32;
-        texto("$a gados centigrados a farenheit = $b");
+        <div class="ejercicios">
+            <?php
 
-        ?>
+            include 'funciones.php';
 
+            escribirT("Solucion:");
+
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+                $a = $_POST['grados'];
+                $b = ($a * 9) / 5 + 32;
+
+                if (empty($a)) {
+                    texto("Ingrese los grados celsius porfavor");
+                } else {
+                    texto("$a gados centigrados a farenheit = $b");
+                }
+            }
+
+
+
+
+            ?>
+
+        </div>
     </div>
 </body>
 

@@ -10,7 +10,7 @@
         body {
             background: url(wallpaperflare.com_wallpaper.jpg);
             background-size: cover;
-            
+
         }
 
         .aaa {

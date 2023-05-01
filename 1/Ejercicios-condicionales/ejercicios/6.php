@@ -11,21 +11,43 @@
 
 <body>
     <div class="ejercicios">
+
+        <h2>Ejercicio 6</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num1">
+                    <h2>Ingrese las tres notas</h2>
+                </label>
+                <input type="text" name="num1" id="num1">
+                <input type="text" name="num2" id="num2">
+                <input type="text" name="num3" id="num3">
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
         <?php
-        
+
         include 'funciones.php';
 
-        escribirT("Ejercicio 6");
-        $a = rand(1, 5) * 0.35;
-        $b = rand(1, 5) * 0.35;
-        $c = rand(1, 5) * 0.30;
+        escribirT("Solucion ");
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        $p = $a + $b + $c;
-        if ($p >= 3.5) {
-            texto("El estudiante a pasado con un promedio de $p");
-        } else {
-            texto("El estudiante ha perdido con un promedio de $p");
+            $a = $_POST['num1'] * 0.35;
+            $b = $_POST['num2'] * 0.35;
+            $c = $_POST['num3'] * 0.30;
+
+            if (empty($a)) {
+                texto("Inserte valores correctos");
+            } else {
+                $p = $a + $b + $c;
+                if ($p >= 3.5) {
+                    texto("El estudiante ha pasado con un promedio de $p");
+                } else {
+                    texto("El estudiante ha perdido con un promedio de $p");
+                }
+            }
         }
+
+
 
 
         ?>

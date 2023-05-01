@@ -15,6 +15,8 @@
         
         include 'funciones.php';
 
+        escribirT("Ejercicio 3");
+
         texto("Numeros descendentes del 10 al 1:<br>");
         for ($i = 10; $i > 0; $i--) {
 

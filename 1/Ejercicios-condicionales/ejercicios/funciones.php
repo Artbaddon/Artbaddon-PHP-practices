@@ -14,7 +14,6 @@ function escribirT($texto)
 
 function texto($texto)
 {
-    echo $texto;
-
+    echo "<p>$texto</p>";
     espacio(2);
 }

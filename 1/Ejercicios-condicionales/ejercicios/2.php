@@ -11,24 +11,46 @@
 
 <body>
     <div class="ejercicios">
+        <h2>Ejercicio 2</h2>
+        <div class="form">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="num1">
+                    <h2>Ingrese tres numeros</h2>
+                </label>
+                <input type="text" name="num1" id="num1">
+                <input type="text" name="num2" id="num2">
+                <input type="text" name="num3" id="num3">
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
         <?php
-        
+
         include 'funciones.php';
 
-        escribirT("Ejercicio 2");
-        $a = rand(1, 100);
-        $b = rand(1, 100);
-        $c = rand(1, 100);
-        texto("Dado los numeros: $a, $b, $c:");
-        if ($a > $b and $a > $c) {
-            texto("El numero $a es el mayor");
-        } elseif ($b > $a and $b > $c) {
-            texto("El numero $b es el mayor");
-        } elseif ($c > $a and $c > $b) {
-            texto("El numero $c es el mayor");
-        } else {
-            texto("Los numeros son iguales");
+        escribirT("Solucion 2");
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $a = $_POST['num1'];
+            $b = $_POST['num2'];
+            $c = $_POST['num3'];
+
+
+            if (empty($a)) {
+                texto("Inserte valores correctos");
+            } else {
+                texto("Dado los numeros: $a, $b, $c:");
+                if ($a > $b and $a > $c) {
+                    texto("El numero $a es el mayor");
+                } elseif ($b > $a and $b > $c) {
+                    texto("El numero $b es el mayor");
+                } elseif ($c > $a and $c > $b) {
+                    texto("El numero $c es el mayor");
+                }
+            }
         }
+
+
+
 
 
         ?>
