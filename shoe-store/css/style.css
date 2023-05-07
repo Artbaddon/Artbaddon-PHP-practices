@@ -1,0 +1,304 @@
+/*
+    Author: Sebastian Sotelo;
+    Theme: Shoe store;
+    version: 1.0;
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+
+  width: 80%;
+  margin: 0 auto;
+  padding: 1%;
+ 
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+.img-curve{
+   border: none;
+   border-radius: 15px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-white{
+   color: rgb(255, 255, 255);
+}
+.clearfix {
+  clear: both;
+  float: none;
+}
+.menu {
+  line-height: 100px;
+}
+
+a {
+  color: #80ced7;
+  text-decoration: none;
+}
+a:hover {
+  color: #9ad1d4;
+  color: white;
+}
+fieldset{
+   border: 1px solid white;
+   margin: 5%;
+   padding: 3%;
+   border-radius: 5px;
+   background-color: #003249;
+   color: white;
+}
+
+.btn {
+  padding: 1%;
+  border: none;
+  font-size: 1rem;
+  
+}
+
+
+.btn-primary {
+  background-color: #80ced7;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.btn-primary:hover {
+  background-color: #9ad1d4;
+ 
+
+ 
+}
+
+h2 {
+  color: #003249;
+  font-size: 2rem;
+  margin-bottom: 2%;
+}
+h3{
+   font-size: 1.5rem;
+   text-shadow: 3px 2px 2px black ;
+}
+.float-container{
+   position: relative;
+  
+}
+.float-text{
+   position: absolute;
+   bottom: 50px;
+   left: 20%;
+ 
+  
+}
+/* Css for nav section */
+
+.logo {
+  width: 10%;
+  float: right;
+}
+
+.menu ul {
+  list-style-type: none;
+}
+.menu ul li {
+  display: inline;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.menu ul li a{
+   font-size: 1.5rem;
+}
+.menu ul li a:hover{
+  color: #9ad1d4;
+}
+
+
+/* CSS for shoe search */
+
+.shoe-search {
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6% 0;
+}
+
+
+
+.shoe-search input[type="search"] {
+  width: 50%;
+  padding: 1%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Css for categories */
+.categories {
+  padding: 4% 0;
+}
+
+.box-4 {
+
+  width: 22%;
+  margin: 1.5%;
+  float: left;
+}
+
+.box-4:hover{
+   transform: scale(1.02);
+   transition: all ease 1s;
+   cursor: pointer;
+ 
+}
+
+/* CSS for Shoe catalog */
+.shoe-catalog{
+   background-color: #80CED7;
+   padding: 4%;
+}
+.shoe-catalog-box{
+   width: 45.4%;
+   margin: 1%;
+   padding: 1%;
+   float: left;
+   background-color: #CCDBDC;
+   border: none;
+   border-radius: 20px;
+}
+
+
+.catalog-title{
+   margin: 2% 0;
+   font-size: 1.2rem;
+}
+.shoe-catalog-box img{
+   height: 10rem;
+}
+.shoe-catalog-img{
+   width: 20%;
+   float: left;
+   margin: 1%;
+   padding: 1%;
+}
+
+.shoe-catalog-img:hover{
+   transform: scale(1.02);
+   transition: all ease 1s;
+}
+.shoe-catalog-desc{
+   width: 70%;
+   float: left;
+   margin-left: 5%;
+
+}
+
+.shoe-price{
+   font-size: 1.2rem;
+   margin: 2% 0;
+}
+
+.shoe-detail{
+   font-size: 1rem;
+}
+
+/* CSS for social Page */
+
+.social ul {
+   list-style-type: none;
+   
+}
+
+.social ul li{
+   display: inline;
+   padding: 1%;
+}
+/* For order section */
+
+.order{
+    width: 50%;
+    margin: 0 auto;
+}
+.input-responsive{
+    width: 96%;
+    padding: 1%;
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.order-label{
+    margin-bottom: 1%; 
+    font-weight: bold;
+}
+
+/* CSS for mobile size or smaller screen */
+
+@media only screen and (max-width:768px){
+   .logo{
+      width: 70%;
+      float: none;
+      margin: 1% auto;
+   }
+
+   .menu ul{
+      text-align: center;
+      font-size: 0.4rem;
+      
+      
+   }
+
+   .shoe-search input[type="search"]{
+      width: 90%;
+      margin-bottom: 5%;
+      padding: 2%;
+   }
+
+   .btn{
+      width: 90%;
+      padding: 2%;
+   }
+   .shoe-search{
+      padding: 20% 0;
+   }
+   h2{
+      margin-bottom: 10%;
+   }
+   .box-4{
+      width: 95%;
+      margin: 2% auto;
+   }
+   .shoe-catalog{
+      padding: 20% 0;
+   }
+   .shoe-catalog-box{
+      width: 90%;
+      padding: 5%;
+   }
+   .shoe-catalog-img{
+      width: 100%;
+     
+   }
+   .shoe-catalog img{
+      height: 15rem;
+      object-fit: cover;
+      margin-bottom: 5%;
+      
+   }
+
+   .social{
+      padding: 5%;
+   }
+}
