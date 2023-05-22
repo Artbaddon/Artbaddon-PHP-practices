@@ -29,11 +29,9 @@
   width: 100%;
 }
 
-.tbl-30{
-    width: 30%;
+.tbl-30 {
+  width: 30%;
 }
-
-
 
 table tr th {
   border-bottom: 1px solid black;
@@ -83,6 +81,13 @@ table tr td {
 
 .btn-danger:hover {
   background-color: #bc2525;
+}
+
+.succes {
+  color: rgb(0, 194, 0);
+}
+.fail {
+  color: coral;
 }
 /* CSS for Menu */
 .menu {
