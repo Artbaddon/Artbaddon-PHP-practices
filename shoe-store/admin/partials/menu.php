@@ -1,5 +1,5 @@
 <?php include('../config/constants.php'); ?>
-<?php include ('../partials/login-check.php');?>
+<?php include ('login-check.php');?>
 <?php
 // Authorization -acces control
 // Check whether the user is logged in or not
