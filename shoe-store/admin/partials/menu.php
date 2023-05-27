@@ -1,4 +1,10 @@
-<?php include('../config/constants.php');?>
+<?php include('../config/constants.php'); ?>
+<?php include ('../partials/login-check.php');?>
+<?php
+// Authorization -acces control
+// Check whether the user is logged in or not
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +28,9 @@
                 <li><a href="manage-category.php">Category</a></li>
                 <li><a href="manage-shoe.php">Shoe</a></li>
                 <li><a href="manage-order.php">Order</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
 
     </div>
     <!-- Menu Section Ends -->
-
-

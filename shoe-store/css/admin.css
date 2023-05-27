@@ -9,6 +9,9 @@
   padding: 0;
   font-family: "PT Sans", sans-serif;
 }
+body{
+  background-color: #38598b;
+}
 
 .wrapper {
   padding: 1%;
@@ -116,6 +119,12 @@ table tr td {
 .main-content {
   background-color: #ccdbdc;
   padding: 3% 0;
+ width: 80%;
+margin: 0 auto;
+margin-top: 2%;
+border-radius: 20px;
+box-shadow: 4px 5px black;
+
 }
 
 .col-4 {
@@ -127,9 +136,9 @@ table tr td {
 }
 
 /* CSS For login */
-/* .body-login {
+.body-login {
   background-color: #38598b;
-} */
+}
 
 .login-container {
   width: 100%;
@@ -141,8 +150,8 @@ table tr td {
 
 .wrapper-login {
   width: 20%;
-  height: 30%;
-  /* background: linear-gradient(130deg, blue, rgb(255, 113, 113)); */
+  height: calc(fit-content+10%);
+  background: linear-gradient(130deg, #80ced7, #9ad1d4);
   border: 1px solid black;
   border-radius: 20px;
   padding: 2%;
@@ -180,4 +189,13 @@ form .login-btn {
 .footer {
   background-color: #80ced7;
   color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 10%;
+  
+}
+.footer p{
+  padding: 0.2%;
+
 }
