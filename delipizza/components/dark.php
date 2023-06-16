@@ -5,7 +5,7 @@
     const dayNight = document.querySelector('.day-night');
 
     dayNight.addEventListener('click', () => {
-        document.body.classList.contains("dark");
+        document.body.classList.toggle("dark");
         if (document.body.classList.contains("dark")) {
             localStorage.setItem("theme", "dark");
         } else {
@@ -25,13 +25,14 @@
         updateIcon();
     }
     themeMode();
-    function updateIcon(){
+
+    function updateIcon() {
         if (document.body.classList.contains("dark")) {
             dayNight.querySelector("i").classList.add("bxs-sun");
             dayNight.querySelector("i").classList.remove("bxs-moon");
         } else {
-            dayNight.querySelector("i").classList.remove("bxs-moon");
-            dayNight.querySelector("i").classList.add("bxs-sun");
+            dayNight.querySelector("i").classList.remove("bxs-sun");
+            dayNight.querySelector("i").classList.add("bxs-moon");
         }
     }
 </script>
