@@ -1,3 +1,8 @@
+<?php
+
+include '../components/connect.php'; ?>
+
+
 <style>
     <?php include 'admin-style.css'; ?>
 </style>
@@ -14,7 +19,13 @@
 </head>
 
 <body>
-<?php include '../components/dark.php'; ?>
+    <div class="main-container">
+        <?php include '../components/admin-header.php'; ?>
+
+    </div>
+    
+    <?php include '../components/dark.php'; ?>
+    <script src="script.js"></script>
 
 </body>
 

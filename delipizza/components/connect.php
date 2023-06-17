@@ -4,9 +4,7 @@ $user_name = 'root';
 $password = '';
 $conn = new PDO($db_name, $user_name, $password);
 
-if (isset($conn)) {
-    echo "connected to db";
-}
+
 function unique_id()
 {
     $chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
