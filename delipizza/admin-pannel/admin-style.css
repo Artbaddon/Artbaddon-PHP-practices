@@ -42,9 +42,9 @@ body.dark {
     inset 0.707px 0.707px 0px 0px rgba(45, 47, 61, 0.79),
     inset -1.638px -1.147px 3px 0px rgba(45, 47, 61, 0.18);
 
-  --color: #faf0ca;
-  --black: #fff;
-  --lightgray: #7888a2;
+  --color: #ffffff;
+  --black: #ffffff;
+  --lightgray: #ffffff;
   --orange: #ee964b;
 }
 /* -------------------Global settings----------------------- */
@@ -234,7 +234,7 @@ header .right{
 }
 .toggle-btn{
   margin-left: .5rem;
-  display: none;
+  
  
 }
 .profile-detail{
@@ -374,8 +374,44 @@ header .right{
 .social-links i:hover{
   border-radius: 50%;
 }
+/* ---------------Login form----------------- */
+#admin_login{
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#admin_login .btn{
+  width: 100%;
+}
+#admin_login .profile{
+  margin-top: -8rem;
+  background: var(--background-color);
+}
+form h3{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+form span{
+  color: var(--orange);
+}
+.form-container form input[type="submit"]{
+  width: 49%;
+  cursor: pointer;
+  margin: .5rem;
+  
+}
+.post-editor textarea{
+  height: 15rem;
+  resize: none ;
+}
+.flex-btn{
+  display: flex;
+}
 /* ---------------Media Screen----------------- */
-@media screen and (max-width: 991px){
+
   .toggle-btn{
     display: block;
   }
@@ -393,4 +429,3 @@ header .right{
   section{
     width: 100%;
   }
-}

@@ -1,6 +1,12 @@
 <?php
 
-include '../components/connect.php'; ?>
+include '../components/connect.php';
+session_start();
+
+$admin_id = $_SESSION['admin_id'];
+
+?>
+
 
 
 <style>
@@ -23,7 +29,7 @@ include '../components/connect.php'; ?>
         <?php include '../components/admin-header.php'; ?>
 
     </div>
-    
+
     <?php include '../components/dark.php'; ?>
     <script src="script.js"></script>
 

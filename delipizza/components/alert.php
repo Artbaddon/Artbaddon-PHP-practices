@@ -1,14 +1,24 @@
 <?php
-if(isset($succes_msg)){
-    echo'<script>swal("'.$succes_msg.'","","succes");</script>';
+if(isset($success_msg)){
+    foreach($success_msg as $success_msg){
+        echo'<script>swal("'.$success_msg.'","","success");</script>';
+    }
+    
 }
 if(isset($warning_msg)){
-    echo'<script>swal("'.$warning_msg.'","","Warning");</script>';
+    foreach($warning_msg as $warning_msg){
+        echo'<script>swal("'.$warning_msg.'","","warning");</script>';
+    }
+    
 }
 if(isset($info_msg)){
-    echo'<script>swal("'.$info_msg.'","","info");</script>';
+    foreach($info_msg as $info_msg){
+        echo'<script>swal("'.$info_msg.'","","info");</script>';
+    }
+   
 }
 if(isset($error_msg)){
-    echo'<script>swal("'.$error_msg.'","","error");</script>';
+    foreach($error_msg as $error_msg){
+        echo'<script>swal("'.$error_msg.'","","error");</script>';
+    }
 }
-?>
