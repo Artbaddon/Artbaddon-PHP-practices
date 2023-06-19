@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $select_admin->execute([$email, $pass]);
     if ($select_admin->rowCount() > 0) {
         $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['admin_id'] = $fetch_admin_id['id_Admin'];
+        $_SESSION['admin_id'] = $fetch_admin_id['ID_Administrador'];
         header('location:dashboard.php');
     } else {
         $warning_msg[] = 'El email   o la contraseña son incorrectos';

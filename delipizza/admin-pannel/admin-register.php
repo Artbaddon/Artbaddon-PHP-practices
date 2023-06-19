@@ -52,13 +52,13 @@ if (isset($_POST['submit'])) {
 
     <!-- Box Icon CDN list  -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Admin - Delipizza</title>
+    <title>Registro - Admin - Delipizza</title>
 </head>
 
 <body>
 
     <div class="main-container">
-        <?php include '../components/admin-header.php'; ?>
+     
         <section>
             <div class="form-container" id="admin_login">
                 <form action="" method="post" enctype="multipart/form-data">

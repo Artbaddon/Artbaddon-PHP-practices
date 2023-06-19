@@ -1,8 +1,6 @@
-
-
 <header>
     <div class="logo">
-        <img src="../image/Delipizza-logo-final.jpg" alt="Logo de la tienda Delipizza " width="200">
+        <a href="dashboard.php"> <img src="../image/Delipizza-logo-final.jpg" alt="Logo de la tienda Delipizza " width="200"></a>
     </div>
     <div class="right">
         <div class="bx bxs-user" id="user-btn"></div>
@@ -17,12 +15,12 @@
 
         ?>
             <div class="profile">
-                <img src="../uploaded-img/<? $fetch_profile['foto']; ?>" alt="" class="logo-img" width="100">
-                <p><?= $fetch_profile['nombre_Administrador'];   ?></p>
+                <img src="../uploaded-img/<?= $fetch_profile['foto']; ?>" alt="" class="logo-img" width="100">
+                <p><?= $fetch_profile['nombre_Admin'];   ?></p>
             </div>
             <div class="flex-btn">
-                <a href="update_profile.php" class="btn">Update profile</a>
-                <a href="../components/admin_logout.php" onclick="return confirm('Logout from the website')">Logout</a>
+                <a href="update-profile.php" class="btn">Actualizar Datos</a>
+                <a href="../components/admin-logout.php" class="btn" onclick="return confirm('Logout from the website' )">Logout</a>
             </div>
         <?php } ?>
     </div>
@@ -34,18 +32,14 @@
 
         $select_profile = $conn->prepare("SELECT * FROM administrador WHERE ID_Administrador = ?");
         $select_profile->execute([$admin_id]);
-        if($select_profile){
-            echo "ok";
-        }else{
-            echo "no";
-        }
+
         if ($select_profile->rowCount() > 0) {
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
         ?>
             <div class="profile">
-                <img src="../uploaded-img/<? $fetch_profile['foto'] ?>" alt="" class="logo-img" width="100">
-                <p><?= $fetch_profile['nombre_Administrador'];   ?></p>
+                <img src="../uploaded-img/<?= $fetch_profile['foto'] ?>" alt="" class="logo-img" width="100">
+                <p><?= $fetch_profile['nombre_Admin'];   ?></p>
             </div>
         <?php } ?>
         <h5>Menu</h5>
