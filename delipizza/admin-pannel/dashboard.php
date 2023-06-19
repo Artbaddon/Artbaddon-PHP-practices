@@ -5,6 +5,7 @@ session_start();
 
 $admin_id = $_SESSION['admin_id'];
 if (!isset($admin_id)) {
+    $warning_msg[] = 'Inicie sesión para continuar';
     header('location:admin-login.php');
 }
 
@@ -72,9 +73,19 @@ if (!isset($admin_id)) {
                     $select_deactive_post->execute(['inactivo']);
                     $total_deactive_post = $select_deactive_post->rowCount();
                     ?>
-                    <h3><?=$total_deactive_post?></h3>
+                    <h3><?= $total_deactive_post ?></h3>
                     <p>Post Inactivos</p>
                     <a href="add-products.php" class="btn">Ver productos</a>
+                </div>
+                <div class="box">
+                    <?php
+                    $select_category = $conn->prepare("SELECT * FROM categoria");
+                    $select_category->execute();
+                    $total_category = $select_category->rowCount();
+                    ?>
+                    <h3><?= $total_category ?></h3>
+                    <p>Categorias</p>
+                    <a href="add-category.php" class="btn">Añadir categorias</a>
                 </div>
                 <div class="box">
                     <?php
@@ -107,7 +118,7 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_canceled_order; ?></h3>
                     <p>Ordenes canceladas</p>
-                    <a href="admin-order.php" class="btn">Ver ordenes</a>    
+                    <a href="admin-order.php" class="btn">Ver ordenes</a>
                 </div>
                 <div class="box">
                     <?php
@@ -115,7 +126,7 @@ if (!isset($admin_id)) {
                     $select_confirm_order->execute(['En proceso']);
                     $total_confirm_order = $select_confirm_order->rowCount();
 
-                  ?>
+                    ?>
                     <h3><?= $total_confirm_order; ?></h3>
                     <p>Ordenes confirmadas</p>
                     <a href="admin-order.php" class="btn">Ver ordenes</a>
@@ -137,7 +148,10 @@ if (!isset($admin_id)) {
 
     <?php include '../components/dark.php'; ?>
     <script src="script.js"></script>
+    <!-- Sweet alert script -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <?php include '../components/alert.php'; ?>
 </body>
 
 </html>

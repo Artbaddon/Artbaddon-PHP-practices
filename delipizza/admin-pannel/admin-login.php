@@ -23,6 +23,8 @@ if (isset($_POST['submit'])) {
     } else {
         $warning_msg[] = 'El email   o la contraseña son incorrectos';
     }
+
+    
 }
 
 ?>
@@ -73,6 +75,9 @@ if (isset($_POST['submit'])) {
     <!-- Custom JS -->
     <script src="script.js"></script>
     <?php include '../components/alert.php'; ?>
+    <!-- Sweet alert script -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 </body>
 
