@@ -7,47 +7,35 @@
         <div class="toggle-btn"><i class="bx bx-menu"></i></div>
     </div>
     <div class="profile-detail">
-        <?php
-        $select_profile = $conn->prepare("SELECT * FROM administrador WHERE ID_Administrador = ?");
-        $select_profile->execute([$admin_id]);
-        if ($select_profile->rowCount() > 0) {
-            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-
-        ?>
+      
             <div class="profile">
-                <img src="../uploaded-img/<?= $fetch_profile['foto']; ?>" alt="" class="logo-img" width="100">
-                <p><?= $fetch_profile['nombre_Admin'];   ?></p>
+                <img src="../uploaded-img/Zombatar_1.jpg" alt="" class="logo-img" width="100">
+                <p>Nombre de Admin</p>
             </div>
             <div class="flex-btn">
                 <a href="update-profile.php" class="btn">Actualizar Datos</a>
                 <a href="../components/admin-logout.php" class="btn" onclick="return confirm('Logout from the website' )">Logout</a>
             </div>
-        <?php } ?>
+    
     </div>
 
 </header>
 <div class="side-container">
     <div class="sidebar">
-        <?php
+    
 
-        $select_profile = $conn->prepare("SELECT * FROM administrador WHERE ID_Administrador = ?");
-        $select_profile->execute([$admin_id]);
-
-        if ($select_profile->rowCount() > 0) {
-            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-
-        ?>
+       
             <div class="profile">
-                <img src="../uploaded-img/<?= $fetch_profile['foto'] ?>" alt="" class="logo-img" width="100">
-                <p><?= $fetch_profile['nombre_Admin'];   ?></p>
+                <img src="../uploaded-img/Zombatar_1.jpg" alt="" class="logo-img" width="100">
+                <p>Nombre Admin</p>
             </div>
-        <?php } ?>
+
         <h5>Menu</h5>
         <div class="navbar">
             <ul>
                 <li><a href="dashboard.php"><i class="bx bxs-home-smile"></i>Dashboard</a></li>
-                <li><a href="add-products.php"><i class="bx bxs-shopping-bags"></i>Añadir productos</a></li>
-                <li><a href="view-products.php"><i class="bx bxs-food-menu"></i>Ver productos</a></li>
+                <li><a href="add-posts.php"><i class="bx bxs-shopping-bags"></i>Añadir productos</a></li>
+                <li><a href="view-post.php"><i class="bx bxs-food-menu"></i>Ver productos</a></li>
                 <li><a href="user-accounts.php"><i class="bx bxs-user-detail"></i>Cuentas</a></li>
                 <li><a href="../components/admin-logout.php" onclick="return confirm('¿Salir del sitio?')"><i class="bx bx-log-out"></i> Salir</a></li>
             </ul>

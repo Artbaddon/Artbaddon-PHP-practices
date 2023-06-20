@@ -2,42 +2,6 @@
 include '../components/connect.php';
 
 
-session_start();
-
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $name = htmlspecialchars($name);
-    $email = $_POST['email'];
-    $email = htmlspecialchars($email);
-
-    $pass = $_POST['pass'];
-    $pass = sha1($_POST['pass']);
-    $pass = htmlspecialchars($pass);
-    $cpass = $_POST['cpass'];
-    $cpass = sha1($_POST['cpass']);
-    $cpass = htmlspecialchars($cpass);
-
-    $image = $_FILES['profile-p']['name'];
-    $image = htmlspecialchars($image);
-    $image_tmp_name = $_FILES['profile-p']['tmp_name'];
-    $image_folder = '../uploaded-img/' . $image;
-
-    $select_admin = $conn->prepare("SELECT * FROM administrador WHERE nombre_Admin = ?");
-    $select_admin->execute([$name]);
-    if ($select_admin->rowCount() > 0) {
-        $warning_msg[] = 'El nombre de usuario ya existe';
-    } else {
-        if ($pass != $cpass) {
-            $warning_msg[] = 'Las contraseñas no coinciden';
-        } else {
-            $insert_admin = $conn->prepare("INSERT INTO administrador (nombre_Admin, email_Admin, contraseña_Admin, foto) VALUES (?, ?, ?, ?)");
-            $insert_admin->execute([$name, $email, $cpass, $image]);
-            move_uploaded_file($image_tmp_name, $image_folder);
-            $success_msg[] = 'Registro de Administrador exitoso';
-        }
-    }
-}
-
 ?>
 
 <style>
@@ -65,7 +29,7 @@ if (isset($_POST['submit'])) {
                     <h3>Registro de admin</h3>
                     <div class="input-field">
                         <label for="name">Nombre Completo <sup>*</sup></label>
-                        <input type="text" name="name" maxlength="30" required placeholder="Ingrese nombre completo" oninput="this.value.replace(/\s/g,'') " pattern="^[a-zA-Z]+$">
+                        <input type="text" name="name" maxlength="30" required placeholder="Ingrese nombre completo" oninput="this.value.replace(/\s/g,'')" pattern="^[a-zA-Z]+$">
                     </div>
                     <div class="input-field">
                         <label for="email"> Email <sup>*</sup></label>

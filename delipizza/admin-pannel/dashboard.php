@@ -63,7 +63,7 @@ if (!isset($admin_id)) {
 
                     <h3><?= $total_post; ?></h3>
                     <p>Total productos activos</p>
-                    <a href="add-products.php" class="btn">Ver productos</a>
+                    <a href="view-products.php" class="btn">Ver productos</a>
 
 
                 </div>
@@ -78,15 +78,19 @@ if (!isset($admin_id)) {
                     <a href="add-products.php" class="btn">Ver productos</a>
                 </div>
                 <div class="box">
-                    <?php
+                    <?php   
                     $select_category = $conn->prepare("SELECT * FROM categoria");
                     $select_category->execute();
                     $total_category = $select_category->rowCount();
+
                     ?>
                     <h3><?= $total_category ?></h3>
                     <p>Categorias</p>
+                   <a href="view.category.php" class="btn">Ver categorias</a>
                     <a href="add-category.php" class="btn">Añadir categorias</a>
                 </div>
+            
+            
                 <div class="box">
                     <?php
                     $select_users = $conn->prepare("SELECT * FROM usuario");

@@ -1,46 +1,7 @@
 <?php
 
 include '../components/connect.php';
-session_start();
-
-$admin_id = $_SESSION['admin_id'];
-if (!isset($admin_id)) {
-    header('location:admin-login.php');
-}
-if (isset($_POST['publish'])) {
-    $title = $_POST['title'];
-    $title = htmlspecialchars($title);
-
-    $price = $_POST['price'];
-    $price = htmlspecialchars($price);
-
-    $description = $_POST['description'];
-    $description = htmlspecialchars($description);
-
-    $category = $_POST['category'];
-    $category = htmlspecialchars($category);
-
-    $state = $_POST['state'];
-    $state = htmlspecialchars($state);
-
-    $image = $_FILES['image']['name'];
-    $image = htmlspecialchars($image);
-    $image_size = $_FILES['image']['size'];
-    $image_tmp_name = $_FILES['image']['tmp_name'];
-    $image_folder = '../uploaded-img/productos/' . $image;
-
-
-    if ($image_size > 10000000) {
-        $warning_msg[] = 'La imagen es muy grande';
-    } else {
-        move_uploaded_file($image_tmp_name, $image_folder);
-        $insert_product = $conn->prepare("INSERT INTO producto (nombre_Producto, precio_Producto, descripcion_Producto, CategoriaID, estado,img_Producto) VALUES (?,?,?,?,?,?)");
-        $insert_product->execute([$title, $price, $description, $category, $state, $image]);
-        $success_msg[] = 'Producto añadido';
-    }
-}
-
-?>
+ ?>
 
 
 
@@ -111,7 +72,7 @@ if (isset($_POST['publish'])) {
                     </div>
                     <div class="input-field">
                         <input type="submit" name="publish" value="Publicar Producto" class="btn">
-                     
+                        <input type="submit" name="draft" value="Guardar borrador" class="btn">
                     </div>
                 </form>
             </div>
