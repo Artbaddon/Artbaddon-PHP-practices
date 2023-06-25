@@ -14,7 +14,7 @@ if (!isset($admin_id)) {
 
 
 <style>
-    <?php include 'admin-style.css'; ?>
+          <?php include '../css/admin-style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +86,7 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_category ?></h3>
                     <p>Categorias</p>
-                   <a href="view.category.php" class="btn">Ver categorias</a>
+                   <a href="view-category.php" class="btn">Ver categorias</a>
                     <a href="add-category.php" class="btn">Añadir categorias</a>
                 </div>
             
@@ -151,7 +151,7 @@ if (!isset($admin_id)) {
     </div>
 
     <?php include '../components/dark.php'; ?>
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
     <!-- Sweet alert script -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

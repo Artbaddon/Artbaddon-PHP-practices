@@ -70,6 +70,7 @@ if (isset($_POST['submit'])) {
     $cpass = htmlspecialchars($cpass);
 
     if ($prev_pass != $empty_password) {
+
         if ($old_pass != $prev_pass) {
             $warning_msg[] = 'Contraseña anterior incorrecta';
         } elseif ($new_pass != $cpass) {
@@ -79,7 +80,7 @@ if (isset($_POST['submit'])) {
                 $update_pass = $conn->prepare("UPDATE administrador SET contraseña_Admin = ? WHERE ID_Administrador = ?");
                 $update_pass->execute([$new_pass, $admin_id]);
                 $success_msg[] = 'Contraseña actualizada correctamente';
-            }else{
+            } else {
                 $warning_msg[] = 'Por favor ingrese una nueva contraseña';
             }
         }
@@ -91,7 +92,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <style>
-    <?php include 'admin-style.css'; ?>
+         <?php include '../css/admin-style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +156,7 @@ if (isset($_POST['submit'])) {
     <!-- Sweet alert script -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
     <?php include '../components/alert.php'; ?>
 
 </body>

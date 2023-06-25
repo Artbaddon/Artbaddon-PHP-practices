@@ -39,7 +39,7 @@ if (isset($_POST['publish'])) {
 
 
 <style>
-    <?php include 'admin-style.css'; ?>
+    <?php include '../css/admin-style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +85,7 @@ if (isset($_POST['publish'])) {
     </div>
 
     <?php include '../components/dark.php'; ?>
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
     <!-- Sweet alert script -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <?php include '../components/alert.php'; ?>

@@ -20,11 +20,10 @@
             </div>
             <div class="flex-btn">
                 <a href="update-profile.php" class="btn">Actualizar Datos</a>
-                <a href="../components/admin-logout.php" class="btn" onclick="return confirm('Logout from the website' )">Logout</a>
+                <a href="../components/user-logout.php" class="btn" onclick="return confirm('Logout from the website' )">Logout</a>
             </div>
         <?php } ?>
     </div>
-
 </header>
 <div class="side-container">
     <div class="sidebar">
@@ -47,8 +46,11 @@
             <ul>
                 <li><a href="dashboard.php"><i class="bx bxs-home-smile"></i>Dashboard</a></li>
                 <li><a href="add-products.php"><i class="bx bxs-shopping-bags"></i>Añadir productos</a></li>
+                <li><a href="add-category.php"><i class='bx bxs-message-alt-add'></i>Añadir Categorias</a></li>
                 <li><a href="view-products.php"><i class="bx bxs-food-menu"></i>Ver productos</a></li>
+                <li><a href="view-category.php"><i class='bx bxs-category'></i></i>Ver Categorias</a></li>
                 <li><a href="user-accounts.php"><i class="bx bxs-user-detail"></i>Cuentas</a></li>
+
                 <li><a href="../components/admin-logout.php" onclick="return confirm('¿Salir del sitio?')"><i class="bx bx-log-out"></i> Salir</a></li>
             </ul>
         </div>

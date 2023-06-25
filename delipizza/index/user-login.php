@@ -14,23 +14,21 @@ if (isset($_POST['submit'])) {
     $pass = htmlspecialchars($pass);
 
 
-    $select_admin = $conn->prepare("SELECT * FROM administrador WHERE email_Admin = ? AND contraseña_Admin = ?");
+    $select_admin = $conn->prepare("SELECT * FROM usuario WHERE email_Usuario = ? AND contraseña_Usuario = ?");
     $select_admin->execute([$email, $pass]);
     if ($select_admin->rowCount() > 0) {
         $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['admin_id'] = $fetch_admin_id['ID_Administrador'];
-        header('location:dashboard.php');
+        $_SESSION['user_id'] = $fetch_admin_id['ID_Usuario'];
+        header('location:index.php');
     } else {
         $warning_msg[] = 'El email   o la contraseña son incorrectos';
     }
-
-    
 }
 
 ?>
 
 <style>
-        <?php include '../css/admin-style.css'; ?>
+      <?php include '../css/style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +49,7 @@ if (isset($_POST['submit'])) {
         <section class="form-container" id="admin_login">
             <form action="" method="post" enctype="multipart/form-data">
 
-                <h3>Login Admin</h3>
+                <h3>Bienvenido!</h3>
 
                 <div class="input-field">
                     <label for="email"> Email <sup>*</sup></label>
@@ -61,8 +59,8 @@ if (isset($_POST['submit'])) {
                     <label for="password">Contraseña<sup>*</sup></label>
                     <input type="password" name="pass" maxlength="20" required placeholder="Ingrese su Contraseña" oninput="this.value.replace(/\s/g,'')">
 
-                    <input type="submit" name="submit" value="Logueese Ahora" class="btn">
-                    <p></p>
+                    <input type="submit" name="submit" class="submit" value="Logueese Ahora" class="btn">
+                    <p>¿No tienes cuenta? Registrate <a href="user-register.php">acá</a></p>
                 </div>
 
             </form>
@@ -73,12 +71,12 @@ if (isset($_POST['submit'])) {
     <!-- Sweet alert script -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Custom JS -->
-    <script src="../js/script.js"></script>
+    <script src="../js/script1.js"></script>
     <?php include '../components/alert.php'; ?>
     <!-- Sweet alert script -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
+    
 </body>
 
 </html>
