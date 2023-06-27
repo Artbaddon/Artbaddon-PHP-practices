@@ -3,7 +3,7 @@
         <a href="dashboard.php"> <img src="../image/Delipizza-logo-final.jpg" alt="Logo de la tienda Delipizza " width="200"></a>
     </div>
     <div class="right">
-        <div class="bx bxs-user" id="user-btn"></div>
+        <div class="" id="user-btn"><img src="../image/user-solid-24.png" alt=""></div>
         <div class="toggle-btn"><i class="bx bx-menu"></i></div>
     </div>
     <div class="profile-detail">
@@ -44,20 +44,16 @@
         <h5>Menu</h5>
         <div class="navbar">
             <ul>
-                <li><a href="dashboard.php"><i class="bx bxs-home-smile"></i>Dashboard</a></li>
-                <li><a href="add-products.php"><i class="bx bxs-shopping-bags"></i>Añadir productos</a></li>
-                <li><a href="add-category.php"><i class='bx bxs-message-alt-add'></i>Añadir Categorias</a></li>
-                <li><a href="view-products.php"><i class="bx bxs-food-menu"></i>Ver productos</a></li>
-                <li><a href="view-category.php"><i class='bx bxs-category'></i></i>Ver Categorias</a></li>
-                <li><a href="user-accounts.php"><i class="bx bxs-user-detail"></i>Cuentas</a></li>
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="add-products.php">Añadir productos</a></li>
+                <li><a href="add-category.php">Añadir Categorias</a></li>
+                <li><a href="view-products.php">Ver productos</a></li>
+                <li><a href="view-category.php">Ver Categorias</a></li>
+                <li><a href="user-accounts.php">>Cuentas</a></li>
 
                 <li><a href="../components/admin-logout.php" onclick="return confirm('¿Salir del sitio?')"><i class="bx bx-log-out"></i> Salir</a></li>
             </ul>
         </div>
-        <div class="social-links">
-            <i href="" class="bx bxl-facebook"></i>
-            <i href="" class="bx bxl-instagram-alt"></i>
-            <i href="" class="bx bxl-twitter"></i>
-        </div>
+    
     </div>
 </div>

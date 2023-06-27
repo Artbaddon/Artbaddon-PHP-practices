@@ -7,6 +7,8 @@ $admin_id = $_SESSION['admin_id'];
 if (!isset($admin_id)) {
     header('location:admin-login.php');
 }
+
+
 //Delete product from Database
 if (isset($_POST['delete'])) {
     $p_id = $_POST['product_id'];
@@ -16,6 +18,7 @@ if (isset($_POST['delete'])) {
     $delete_product->execute([$p_id]);
 
     $success_msg[] = 'Producto borrado exitosamente';
+    header('location:view-products.php');
 }
 ?>
 
@@ -65,7 +68,7 @@ if (isset($_POST['delete'])) {
                             <div class="flex-btn">
                                 <a href="edit-product.php?id=<?= $fetch_product['ID_producto']; ?>" class="btn">Editar</a>
                                 <button type="submit" name="delete" class="btn" onclick="return confirm('Desea borrar este producto?');">Borrar</button>
-                                <a href="read-product.php?post_id=<?= $fetch_product['ID_producto']; ?>" class="btn">Ver detalle producto</a>
+                                <a href="read-product.php?product_id=<?= $fetch_product['ID_producto']; ?>" class="btn">Ver detalle producto</a>
                             </div>
 
                         </form>

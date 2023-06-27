@@ -36,8 +36,8 @@ if (!isset($user_id)) {
   <!-- Nav section ends here -->
 
   <!-- Search section stars here -->
-  <?php 
-    include'../components/search.php';
+  <?php
+  include '../components/search.php';
   ?>
 
   <!-- Search section ends here -->
@@ -57,8 +57,12 @@ if (!isset($user_id)) {
               <input type="hidden" name="category_id" value="<?= $fetch_category['ID_Categoria']; ?>">
               <?php if ($fetch_category['img_Categoria'] != '') { ?>
                 <img src="../uploaded-img/Categorias/<?= $fetch_category['img_Categoria']; ?>" alt="" class="img-cat img-curve">
-                <h3 class=""><?= $fetch_category['nombre_Categoria'] ?></h3>
-                <p class="cat-desc"><?= $fetch_category['desc_Categoria'] ?></p>
+                <div class="title-container-cat">
+                  <h3 class=""><?= $fetch_category['nombre_Categoria'] ?></h3>
+                </div>
+                <div class="cat-desc-container">
+                  <p class="cat-desc"><?= $fetch_category['desc_Categoria'] ?></p>
+                </div>
               <?php  } ?>
             </form>
           </a>
@@ -76,34 +80,36 @@ if (!isset($user_id)) {
   </section>
   <!-- Categories section stars here -->
 
-  <!-- Menu section stars here -->
+  <!-- Suggested section stars here -->
   <section class="food-catalog">
     <div class="container">
-      <h2 class="text-center">Explorar Comidas</h2>
+      <h2 class="text-center">Productos Recomendados</h2>
       <?php
-      $select_product = $conn->prepare("SELECT * FROM producto WHERE ID_Producto<10 AND estado='activo'");
+      $select_product = $conn->prepare("SELECT * FROM producto WHERE CategoriaID =1 ");
       $select_product->execute();
       if ($select_product->rowCount() > 0) {
         while ($fetch_product = $select_product->fetch(PDO::FETCH_ASSOC)) {
 
       ?>
+          <form action="" method="post" class="float-container">
+            <div class="box-menu">
+              <input type="hidden" name="product_id" value="<?= $product['ID_producto']; ?>">
+              <input type="hidden" name="product_name" value="<?= $product['nombre_Producto']; ?>">
+              <input type="hidden" name="product_price" value="<?= $product['precio_Producto']; ?>">
 
-          <form action="" method="post" class="food-catalog-box">
-            <input type="hidden" name="product_id" value="<?= $fetch_product['ID_producto']; ?>">
-            <?php if ($fetch_product['img_Producto'] != '') { ?>
-              <div class="food-catalog-img">
-                <img src="../uploaded-img/productos/<?= $fetch_product['img_Producto']; ?>" alt="" class="img-cat img-curve">
-
+              <img src="../uploaded-img/productos/<?= $product['img_Producto']; ?>" alt="" class="img-product img-curve">
+              <div class="title-container">
+                <h4 class="title-product"><?= $product['nombre_Producto'] ?></h4>
               </div>
-              <div class="food-catalog-desc">
-                <h3 class="catalog-title"><?= $fetch_product['nombre_Producto'] ?></h3>
-                <p class="food-price">$<?= $fetch_product['precio_Producto'] ?></p>
-                <p class="food-detail"><?= $fetch_product['descripcion_Producto'] ?></p>
-                
-                <a href="#" class="btn btn-primary">Order now</a>
+              <div class="cart-container">
+
+                <input type="submit" name="add_to_cart" value="Agregar al carrito" class="add-cart">
               </div>
 
-            <?php  } ?>
+              <input type="number" name="quantity" id="quantity" value="1" min="1" max="10" class="quantity">
+              <p class="food-price-menu">$<?= $product['precio_Producto'] ?></p>
+
+            </div>
           </form>
       <?php
         }
@@ -148,9 +154,10 @@ if (!isset($user_id)) {
 </html>
 
 
-<<script src="../js/script1.js"></>
+<<script src="../js/script1.js">
+  </>
 
-</script>
-<!-- Sweet alert script -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<?php include '../components/alert.php'; ?>
+  </script>
+  <!-- Sweet alert script -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <?php include '../components/alert.php'; ?>

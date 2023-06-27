@@ -8,6 +8,9 @@ if (!isset($user_id)) {
   header('location:user-login.php');
 }
 
+
+
+
 ?>
 
 
@@ -47,8 +50,8 @@ if (!isset($user_id)) {
   <section class="categories">
 
     <div class="container-menu">
-
-      <form action="" method="post" class="float-container">
+      <h2 class="text-center">Menu</h2>
+      <form action="cart.php?action=add&id" method="post" class="float-container">
         <?php
         $select_category = $conn->prepare("SELECT * FROM categoria WHERE ID_Categoria != 1");
         $select_category->execute();
@@ -59,7 +62,7 @@ if (!isset($user_id)) {
 
 
           <?php
-          $select_product = $conn->prepare("SELECT * FROM producto  WHERE CategoriaID =? ");
+          $select_product = $conn->prepare("SELECT * FROM producto  WHERE CategoriaID =? AND estado='activo'");
           $select_product->execute([$category['ID_Categoria']]);
           $fetch_product = $select_product->fetchAll(PDO::FETCH_ASSOC);
           foreach ($fetch_product as $product) {
@@ -68,8 +71,9 @@ if (!isset($user_id)) {
               <input type="hidden" name="product_id" value="<?= $product['ID_producto']; ?>">
               <input type="hidden" name="product_name" value="<?= $product['nombre_Producto']; ?>">
               <input type="hidden" name="product_price" value="<?= $product['precio_Producto']; ?>">
-
-              <img src="../uploaded-img/productos/<?= $product['img_Producto']; ?>" alt="" class="img-product img-curve">
+              <a href="view-product.php?product_id=<?= $product['ID_producto']; ?>">
+                <img src="../uploaded-img/productos/<?= $product['img_Producto']; ?>" alt="" class="img-product img-curve">
+              </a>
               <div class="title-container">
                 <h4 class="title-product"><?= $product['nombre_Producto'] ?></h4>
               </div>
@@ -90,7 +94,7 @@ if (!isset($user_id)) {
       </form>
     </div>
   </section>
-
+  qx
   <!-- Menu section ends here -->
 
   <!-- Social section stars here -->

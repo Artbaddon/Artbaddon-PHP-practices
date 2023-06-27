@@ -22,7 +22,7 @@ if (isset($_POST['delete'])) {
 
 
 <style>
-     <?php include '../css/admin-style.css'; ?>
+    <?php include '../css/admin-style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,7 @@ if (isset($_POST['delete'])) {
 
             <div class="box-container">
                 <?php
-                $select_product = $conn->prepare("SELECT * FROM categoria");
+                $select_product = $conn->prepare("SELECT * FROM categoria WHERE ID_Categoria>1");
                 $select_product->execute();
                 if ($select_product->rowCount() > 0) {
                     while ($fetch_product = $select_product->fetch(PDO::FETCH_ASSOC)) {
@@ -59,9 +59,9 @@ if (isset($_POST['delete'])) {
 
                             <div class="title"><?= $fetch_product['nombre_Categoria']; ?></div>
                             <div class="flex-btn">
-                                <a href="edit-product.php?id=<?= $fetch_product['ID_Categoria']; ?>" class="btn">Editar</a>
+                                <a href="edit-category.php?id=<?= $fetch_product['ID_Categoria']; ?>" class="btn">Editar</a>
                                 <button type="submit" name="delete" class="btn" onclick="return confirm('Desea borrar este Categoria?');">Borrar</button>
-                                <a href="read-product.php?post_id=<?= $fetch_product['ID_Categoria']; ?>" class="btn">Ver detalle Categoria</a>
+
                             </div>
 
                         </form>

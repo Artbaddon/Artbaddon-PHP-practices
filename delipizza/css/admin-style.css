@@ -275,7 +275,13 @@ header .right {
   padding: 1rem 2.5rem;
   margin: 0 1rem;
 }
-
+.icon-profile {
+  float: right;
+  width: 2rem;
+  height: 2rem;
+  background-image: url('../image/user-solid-24.png');
+  background-size: cover;
+}
 /* ---------------Sidebar----------------- */
 .main-container {
   display: flex;

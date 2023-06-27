@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <style>
-      <?php include '../css/style.css'; ?>
+    <?php include '../css/style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,57 +114,90 @@ if (isset($_POST['submit'])) {
         <?php
         include '../components/general-header.php';
         ?>
+        <aside class="aside-bar">
+            <div class="side-container">
+                <div class="sidebar">
+                    <?php
 
-        <section>
-            <div class="form-container" id="admin_login">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="profile container-profile-p">
-                        <img src="../uploaded-img/clientes/<?= $fetch_profile['foto']; ?>" alt="" class="logo-img profile-p">
-                    </div>
-                    <h3>Actualizar Datos</h3>
-                    <input type="hidden" name="old_img" value="<?= $fetch_profile['foto']; ?>">
-                    <div class="input-field">
-                        <label for="name">Nombre Completo <sup>*</sup></label>
-                        <input type="text" name="name" maxlength="30" placeholder="Ingrese nombre completo" oninput="this.value.replace(/\s/g,'') " pattern="^[a-zA-Z ]+$" value="<?= $fetch_profile['nombre_Usuario']; ?>">
-                    </div>
-                    <div class="input-field">
-                        <label for="email"> Email <sup>*</sup></label>
-                        <input type="email" name="email" maxlength="25" placeholder="Ingrese su email" oninput="this.value.replace(/\s/g,'')" value="<?= $fetch_profile['email_Usuario']; ?>">
-                    </div>
-                    <div class="input-field">
-                        <label for="phone"> Telefono <sup>*</sup></label>
-                        <input type="number" name="phone" maxlength="10" placeholder="Ingrese su telefono" oninput="this.value.replace(/\s/g,'')" minlength="10" value="<?= $fetch_profile['telefono_Usuario']; ?>">
-                    </div>
-                    <div class="input-field">
-                        <label for="address">Direccion <sup>*</sup></label>
-                        <input type="text" name="address" maxlength="60"  placeholder="Ingrese su Direccion" oninput="this.value.replace(/\s/g,'') " value="<?= $fetch_profile['direccion_Usuario']; ?>">
-                    </div>
-                    <div class="input-field">
-                        <label for="barrio">Barrio <sup>*</sup></label>
-                        <input type="text" name="barrio" maxlength="30"  placeholder="Ingrese su barrio" oninput="this.value.replace(/\s/g,'') " value="<?= $fetch_profile['barrio_Usuario']; ?>">
-                    </div>
-                    <div class="input-field">
-                        <label for="pass">Contraseña Actual<sup>*</sup></label>
-                        <input type="password" name="old_pass" maxlength="20" required placeholder="Ingrese Su Actual Contraseña" oninput="this.value.replace(/\s/g,'')">
-                    </div>
-                    <div class="input-field">
-                        <label for="pass">Contraseña Nueva<sup>*</sup></label>
-                        <input type="password" name="new_pass" maxlength="20" placeholder="Ingrese Su Nueva Contraseña" oninput="this.value.replace(/\s/g,'')">
-                    </div>
-                    <div class="input-field">
-                        <label for="cpass">Confirme la Contraseña Nueva<sup>*</sup></label>
-                        <input type="password" name="cpass" maxlength="20"  placeholder="Confirme Su Contraseña" oninput="this.value.replace(/\s/g,'')">
-                    </div>
-                    <div class="input-field">
-                        <label for="profile-p">Imagen De Perfil</label>
-                        <input type="file" name="profile-p" accept="image/*"  title="Debe insertar una imagen" value="<?= $fetch_profile['foto']; ?>">
+                    $select_profile = $conn->prepare("SELECT * FROM usuario WHERE ID_Usuario = ?");
+                    $select_profile->execute([$user_id]);
 
+                    if ($select_profile->rowCount() > 0) {
+                        $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+
+                    ?>
+                        <div class="profile">
+                            <img src="../uploaded-img/Clientes/<?= $fetch_profile['foto'] ?>" alt="" class="logo-img" width="100">
+                            <p><?= $fetch_profile['nombre_Usuario'];   ?></p>
+                        </div>
+                    <?php } ?>
+                    <h5>Menu</h5>
+                    <div class="navbar">
+                        <ul>
+                            <li><a href="profile.php"><i class="bx bxs-home-smile"></i>Editar Datos perfil</a></li>
+                            <li><a href="orders.php"><i class="bx bxs-home-smile"></i>Historial Pedidos</a></li>
+
+                            <li><a href="../components/admin-logout.php" onclick="return confirm('¿Salir del sitio?')"><i class="bx bx-log-out"></i> Salir</a></li>
+                        </ul>
                     </div>
-                    <input type="submit" name="submit" value="Actualizar Datos" class="btn">
+
+                </div>
+        </aside>
+
+        <section id="historial-pedidos">
+            <div class="table-container">
+                <h3>Historial de Pedidos</h3>
 
 
-                </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID ORDEN</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $select_orders = $conn->prepare("SELECT * FROM pedido WHERE ID_Usuario_pedido  = ? ");
+                        $select_orders->execute([$user_id]);
+
+
+                        if ($select_orders->rowCount() > 0) {
+                            while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
+                                $select_product = $conn->prepare("SELECT * FROM producto WHERE ID_Producto = ?");
+                                $select_product->execute([$fetch_orders['ProductoID']]);
+                                $fetch_product = $select_product->fetch(PDO::FETCH_ASSOC);
+
+                                $select_order_detail = $conn->prepare("SELECT * FROM detalles_orden WHERE ID_Orden=?");
+                                $select_order_detail->execute([$fetch_orders['ID_Pedido']]);
+                                $fetch_order_detail = $select_order_detail->fetch(PDO::FETCH_ASSOC);
+                        ?>
+
+                                <tr>
+                                    <td><?= $fetch_order_detail['ID_Orden']; ?></td>
+
+                                    <td><?= $fetch_order_detail['fecha_Orden']; ?></td>
+                                    <td><?= $fetch_order_detail['estado']; ?></td>
+                                    <td><?= $fetch_product['nombre_Producto']; ?></td>
+                                    <td><?= $fetch_orders['cantidad']; ?></td>
+                                    <td>$<?= $fetch_orders['precio']; ?></td>
+
+
+                                </tr>
+                            <?php }
+                        } else { ?>
+                            <tr>
+                                <td colspan="3">No hay pedidos</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
+
         </section>
     </div>
     <?php include '../components/dark.php'; ?>

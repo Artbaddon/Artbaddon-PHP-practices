@@ -38,7 +38,8 @@
                     <p><?= $fetch_profile['nombre_Usuario'];   ?></p>
                 </div>
                 <div class="flex-btn">
-                    <a href="update-profile.php" class="btn-profile">Actualizar Datos</a>
+                    <a href="../index/orders.php
+                    " class="btn-profile">Ver Historial</a>
                     <a href="../components/user-logout.php" class="btn-profile" onclick="return confirm('Logout from the website' )">Logout</a>
                 </div>
             <?php } ?>

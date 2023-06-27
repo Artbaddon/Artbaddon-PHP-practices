@@ -14,7 +14,7 @@ if (!isset($admin_id)) {
 
 
 <style>
-          <?php include '../css/admin-style.css'; ?>
+    <?php include '../css/admin-style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,10 +75,10 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_deactive_post ?></h3>
                     <p>Post Inactivos</p>
-                    <a href="add-products.php" class="btn">Ver productos</a>
+                    <a href="view-products.php" class="btn">Ver productos</a>
                 </div>
                 <div class="box">
-                    <?php   
+                    <?php
                     $select_category = $conn->prepare("SELECT * FROM categoria");
                     $select_category->execute();
                     $total_category = $select_category->rowCount();
@@ -86,11 +86,11 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_category ?></h3>
                     <p>Categorias</p>
-                   <a href="view-category.php" class="btn">Ver categorias</a>
+                    <a href="view-category.php" class="btn">Ver categorias</a>
                     <a href="add-category.php" class="btn">Añadir categorias</a>
                 </div>
-            
-            
+
+
                 <div class="box">
                     <?php
                     $select_users = $conn->prepare("SELECT * FROM usuario");
@@ -100,7 +100,7 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_users ?></h3>
                     <p>Cuentas de Usuario</p>
-                    <a href="user-accounts.php" class="btn">Ver usuarios</a>
+                    <a href="#" class="btn">Ver usuarios</a>
 
                 </div>
                 <div class="box">
@@ -112,38 +112,19 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_admin; ?></h3>
                     <p>Numero de administradores</p>
-                    <a href="user-accounts.php" class="btn">Ver admins</a>
+                    <a href="#" class="btn">Ver admins</a>
                 </div>
-                <div class="box">
-                    <?php
-                    $select_canceled_order = $conn->prepare("SELECT * FROM orden WHERE estado = ?");
-                    $select_canceled_order->execute(['cancelado']);
-                    $total_canceled_order = $select_canceled_order->rowCount();
-                    ?>
-                    <h3><?= $total_canceled_order; ?></h3>
-                    <p>Ordenes canceladas</p>
-                    <a href="admin-order.php" class="btn">Ver ordenes</a>
-                </div>
-                <div class="box">
-                    <?php
-                    $select_confirm_order = $conn->prepare("SELECT * FROM orden WHERE estado = ?");
-                    $select_confirm_order->execute(['En proceso']);
-                    $total_confirm_order = $select_confirm_order->rowCount();
 
-                    ?>
-                    <h3><?= $total_confirm_order; ?></h3>
-                    <p>Ordenes confirmadas</p>
-                    <a href="admin-order.php" class="btn">Ver ordenes</a>
-                </div>
+
                 <div class="box">
                     <?php
-                    $select_total_order = $conn->prepare("SELECT * FROM orden");
+                    $select_total_order = $conn->prepare("SELECT * FROM pedido");
                     $select_total_order->execute();
                     $total_order = $select_total_order->rowCount();
                     ?>
                     <h3><?= $total_order; ?></h3>
                     <p>Total ordenes</p>
-                    <a href="admin-order.php" class="btn">Ver ordenes</a>
+                    <a href="#" class="btn">Ver ordenes</a>
                 </div>
             </div>
 
