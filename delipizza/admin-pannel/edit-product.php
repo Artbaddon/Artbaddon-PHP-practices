@@ -52,7 +52,7 @@ if (isset($_POST['save'])) {
     }
     //Delete product
     if (isset($_POST['delete_product'])) {
-        $delete_product = $conn->prepare("DELETE FROM producto WHERE ID_Producto = ?");
+        $delete_product = $conn->prepare("UPDATE producto SET estado='inactivo' WHERE ID_Producto = ?");
         $delete_product->execute([$_POST['product_id']]);
         unlink('../uploaded-img/productos/' . $old_image);
         header('location:admin-dashboard.php');

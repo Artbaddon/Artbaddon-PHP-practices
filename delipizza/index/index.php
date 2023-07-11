@@ -84,20 +84,29 @@ if (!isset($user_id)) {
   <section class="food-catalog">
     <div class="container">
       <h2 class="text-center">Productos Recomendados</h2>
-      <?php
-      $select_product = $conn->prepare("SELECT * FROM producto WHERE CategoriaID =1 ");
-      $select_product->execute();
-      if ($select_product->rowCount() > 0) {
-        while ($fetch_product = $select_product->fetch(PDO::FETCH_ASSOC)) {
+      <form action="cart.php?action=add&id" method="post" class="float-container">
+        <?php
+        $select_category = $conn->prepare("SELECT * FROM categoria WHERE ID_Categoria = 1");
+        $select_category->execute();
+        $categories = $select_category->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($categories as $category) {
+        ?>
+          <h2><?= $category['nombre_Categoria'] ?></h2>
 
-      ?>
-          <form action="" method="post" class="float-container">
+
+          <?php
+          $select_product = $conn->prepare("SELECT * FROM producto  WHERE CategoriaID =? AND estado='activo'");
+          $select_product->execute([$category['ID_Categoria']]);
+          $fetch_product = $select_product->fetchAll(PDO::FETCH_ASSOC);
+          foreach ($fetch_product as $product) {
+          ?>
             <div class="box-menu">
               <input type="hidden" name="product_id" value="<?= $product['ID_producto']; ?>">
               <input type="hidden" name="product_name" value="<?= $product['nombre_Producto']; ?>">
               <input type="hidden" name="product_price" value="<?= $product['precio_Producto']; ?>">
-
-              <img src="../uploaded-img/productos/<?= $product['img_Producto']; ?>" alt="" class="img-product img-curve">
+              <a href="view-product.php?product_id=<?= $product['ID_producto']; ?>">
+                <img src="../uploaded-img/productos/<?= $product['img_Producto']; ?>" alt="" class="img-product img-curve">
+              </a>
               <div class="title-container">
                 <h4 class="title-product"><?= $product['nombre_Producto'] ?></h4>
               </div>
@@ -110,16 +119,12 @@ if (!isset($user_id)) {
               <p class="food-price-menu">$<?= $product['precio_Producto'] ?></p>
 
             </div>
-          </form>
-      <?php
+        <?php
+
+          }
         }
-      }
-
-
-      ?>
-
-
-
+        ?>
+      </form>
     </div>
   </section>
   <!-- Menu section stars here -->

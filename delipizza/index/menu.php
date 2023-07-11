@@ -94,7 +94,7 @@ if (!isset($user_id)) {
       </form>
     </div>
   </section>
-  qx
+  
   <!-- Menu section ends here -->
 
   <!-- Social section stars here -->

@@ -75,7 +75,7 @@ if (!isset($admin_id)) {
                     ?>
                     <h3><?= $total_deactive_post ?></h3>
                     <p>Post Inactivos</p>
-                    <a href="view-products.php" class="btn">Ver productos</a>
+                    <a href="view-deactivate-products.php" class="btn">Ver productos</a>
                 </div>
                 <div class="box">
                     <?php
@@ -116,16 +116,7 @@ if (!isset($admin_id)) {
                 </div>
 
 
-                <div class="box">
-                    <?php
-                    $select_total_order = $conn->prepare("SELECT * FROM pedido");
-                    $select_total_order->execute();
-                    $total_order = $select_total_order->rowCount();
-                    ?>
-                    <h3><?= $total_order; ?></h3>
-                    <p>Total ordenes</p>
-                    <a href="#" class="btn">Ver ordenes</a>
-                </div>
+    
             </div>
 
         </section>

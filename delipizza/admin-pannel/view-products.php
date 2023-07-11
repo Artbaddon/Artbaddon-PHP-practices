@@ -14,7 +14,7 @@ if (isset($_POST['delete'])) {
     $p_id = $_POST['product_id'];
     $p_id = htmlspecialchars($p_id);
 
-    $delete_product = $conn->prepare("DELETE FROM producto WHERE ID_producto=?");
+    $delete_product = $conn->prepare("UPDATE producto SET estado='inactivo' WHERE ID_producto=?");
     $delete_product->execute([$p_id]);
 
     $success_msg[] = 'Producto borrado exitosamente';
@@ -47,7 +47,7 @@ if (isset($_POST['delete'])) {
 
             <div class="box-container">
                 <?php
-                $select_product = $conn->prepare("SELECT * FROM producto");
+                $select_product = $conn->prepare("SELECT * FROM producto WHERE estado='activo'");
                 $select_product->execute();
                 if ($select_product->rowCount() > 0) {
                     while ($fetch_product = $select_product->fetch(PDO::FETCH_ASSOC)) {
@@ -79,7 +79,7 @@ if (isset($_POST['delete'])) {
                     }
                 } else {
                     echo '  <div class="empty">
-                <p>No hay productos añadidos aún <br><a href="add-products.php" class="btn" style="margin-top: 1.5rem;">Añadir producto</a></p>
+                <p>No hay productos activos añadidos aún <br><a href="add-products.php" class="btn" style="margin-top: 1.5rem;">Añadir producto</a></p>
             </div>';
                 }
 

@@ -49,7 +49,7 @@
                 <li><a href="add-category.php">Añadir Categorias</a></li>
                 <li><a href="view-products.php">Ver productos</a></li>
                 <li><a href="view-category.php">Ver Categorias</a></li>
-                <li><a href="user-accounts.php">>Cuentas</a></li>
+              
 
                 <li><a href="../components/admin-logout.php" onclick="return confirm('¿Salir del sitio?')"><i class="bx bx-log-out"></i> Salir</a></li>
             </ul>

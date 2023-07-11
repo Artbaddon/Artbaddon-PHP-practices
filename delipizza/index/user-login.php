@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     if ($select_admin->rowCount() > 0) {
         $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
         $_SESSION['user_id'] = $fetch_admin_id['ID_Usuario'];
-        header('location:index.php');
+        header('location:index.php');   
     } else {
         $warning_msg[] = 'El email   o la contraseña son incorrectos';
     }
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <style>
-      <?php include '../css/style.css'; ?>
+    <?php include '../css/style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
     <!-- Sweet alert script -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    
+
 </body>
 
 </html>

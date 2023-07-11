@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     //Actualizar nombre
     $name = $_POST['name'];
     $name = htmlspecialchars($name);
-    if (!empty($name)) {
+    if (!empty($name) and $name != '') {
         $select_name = $conn->prepare("SELECT * FROM administrador WHERE nombre_Admin = ?");
         $select_name->execute([$name]);
 
@@ -25,9 +25,10 @@ if (isset($_POST['submit'])) {
         }
     }
     //Actualizar email
+
     $email = $_POST['email'];
     $name = htmlspecialchars($email);
-    if (!empty($email)) {
+    if (!empty($email) and $email != $email) {
         $select_name = $conn->prepare("SELECT * FROM administrador WHERE email_Admin = ?");
         $select_name->execute([$email]);
 
@@ -40,6 +41,7 @@ if (isset($_POST['submit'])) {
         }
     }
     //Actualizar foto
+
     $old_image = $_POST['old_img'];
     $image = $_FILES['profile-p']['name'];
     $image = htmlspecialchars($image);
@@ -52,13 +54,16 @@ if (isset($_POST['submit'])) {
     if ($old_image != $image && $old_image != '') {
         unlink('../uploaded-img/' . $old_image);
     }
+
+
     //Actualizar contraseña
     $empty_password = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-    $select_old_pass = $conn->prepare("SELECT contraseña_Admin FROM administrador WHERE ID_Administrador = ?");
+    $select_old_pass = $conn->prepare("SELECT * FROM administrador WHERE ID_Administrador = ?");
     $select_old_pass->execute([$admin_id]);
 
     $fetch_prev_pass = $select_old_pass->fetch(PDO::FETCH_ASSOC);
     $prev_pass = $fetch_prev_pass['contraseña_Admin'];
+    
 
     $old_pass = sha1($_POST['old_pass']);
     $old_pass = htmlspecialchars($old_pass);
@@ -69,14 +74,14 @@ if (isset($_POST['submit'])) {
     $cpass = sha1($_POST['cpass']);
     $cpass = htmlspecialchars($cpass);
 
-    if ($prev_pass != $empty_password) {
+    if ($prev_pass != $empty_password and $old_pass != $prev_pass and $new_pass != $empty_password and $cpass != $empty_password) {
 
         if ($old_pass != $prev_pass) {
             $warning_msg[] = 'Contraseña anterior incorrecta';
         } elseif ($new_pass != $cpass) {
             $warning_msg[] = 'Las contraseñas no coinciden';
         } else {
-            if ($new_pass != $empty_password) {
+            if ($new_pass != $empty_password and $old_pass != $prev_pass) {
                 $update_pass = $conn->prepare("UPDATE administrador SET contraseña_Admin = ? WHERE ID_Administrador = ?");
                 $update_pass->execute([$new_pass, $admin_id]);
                 $success_msg[] = 'Contraseña actualizada correctamente';
@@ -92,7 +97,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <style>
-         <?php include '../css/admin-style.css'; ?>
+    <?php include '../css/admin-style.css'; ?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,7 +125,7 @@ if (isset($_POST['submit'])) {
                     <input type="hidden" name="old_img" value="<?= $fetch_profile['foto']; ?>">
                     <div class="input-field">
                         <label for="name">Nombre Completo <sup>*</sup></label>
-                        <input type="text" name="name" maxlength="30" placeholder="Ingrese nombre completo" oninput="this.value.replace(/\s/g,'')" value="<?= $fetch_profile['nombre_Admin']; ?>">
+                        <input type="text" name="name" maxlength="30" pattern="^[a-zA-Z ]+$" placeholder="Ingrese nombre completo" oninput="this.value.replace(/\s/g,'')" value="<?= $fetch_profile['nombre_Admin']; ?>">
                     </div>
                     <div class="input-field">
                         <label for="email"> Email <sup>*</sup></label>
@@ -141,7 +146,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="input-field">
                         <label for="profile-p">Imagen De Perfil</label>
-                        <input type="file" name="profile-p" accept="image/*">
+                        <input type="file" name="profile-p" accept="image/*" required>
 
                     </div>
                     <input type="submit" name="submit" value="Actualizar Datos" class="btn">

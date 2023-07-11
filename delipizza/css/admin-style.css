@@ -279,7 +279,7 @@ header .right {
   float: right;
   width: 2rem;
   height: 2rem;
-  background-image: url('../image/user-solid-24.png');
+  background-image: url("../image/user-solid-24.png");
   background-size: cover;
 }
 /* ---------------Sidebar----------------- */
@@ -377,6 +377,44 @@ header .right {
   border-radius: 50%;
 }
 /* ---------------Login form----------------- */
+.container-profile-data,
+.table-container {
+  position: absolute;
+  left: 20%;
+  top: 10%;
+}
+.table-container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  width: 65%;
+  margin-top: 4rem;
+  box-shadow: var(--inner-box-shadow);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: var(--orange);
+  color: #333;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--orange);
+}
+
+.table tbody tr:hover {
+  background-color: #ddd;
+}
 #admin_login {
   margin: 1rem auto;
   display: flex;
@@ -535,8 +573,7 @@ form span {
 }
 
 .read-post form .flex-btn {
-  justify-content:space-around;
-
+  justify-content: space-around;
 }
 
 .read-post form .flex-btn .btn {

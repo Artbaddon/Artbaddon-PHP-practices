@@ -287,8 +287,15 @@ h3 {
   color: var(--black);
 }
 
+.icon {
+  width: 10px;
+  height: 10px;
+  display: inline;
+}
+
 #user-btn,
-.cart-btn {
+.cart-btn,
+.icon {
   font-size: 2rem;
   box-shadow: var(--inner-box-shadow);
   padding: 0.5rem;
@@ -607,7 +614,6 @@ h3 {
 .cat-desc-container {
   height: 20vh;
   overflow: hidden;
-
 }
 
 .box-4 {
@@ -802,6 +808,41 @@ h3 {
   font-weight: bold;
 }
 
+/* CSS FOR LOGIN AND REGISTER FORM */
+#admin_login {
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#admin_login .submit {
+  width: 100%;
+}
+#admin_login .profile {
+  margin-top: 2rem;
+}
+form h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--orange);
+}
+form span {
+  color: var(--orange);
+}
+.form-container form input[type="submit"] {
+  width: 49%;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+.post-editor textarea {
+  height: 15rem;
+  resize: none;
+}
+.flex-btn {
+  display: flex;
+}
 /* CSS for mobile size or smaller screen */
 
 @media only screen and (max-width: 768px) {
@@ -861,41 +902,6 @@ h3 {
   .social {
     padding: 5%;
   }
-}
-/* CSS FOR LOGIN AND REGISTER FORM */
-#admin_login {
-  margin: 1rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#admin_login .submit {
-  width: 100%;
-}
-#admin_login .profile {
-  margin-top: 2rem;
-}
-form h3 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--orange);
-}
-form span {
-  color: var(--orange);
-}
-.form-container form input[type="submit"] {
-  width: 49%;
-  cursor: pointer;
-  margin: 0.5rem;
-}
-.post-editor textarea {
-  height: 15rem;
-  resize: none;
-}
-.flex-btn {
-  display: flex;
 }
 @media screen and (max-width: 768px) {
   .container-menu {

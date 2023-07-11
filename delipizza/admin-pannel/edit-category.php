@@ -93,7 +93,7 @@ if (isset($_POST['save'])) {
                                 <input type="hidden" name="category_id" value="<?= $fetch_category['ID_Categoria']; ?>">
                                 <div class="input-field">
                                     <label for="title">Nombre la categoria <sup>*</sup></label>
-                                    <input type="text" name="title" id="title" value="<?= $fetch_category['nombre_Categoria']; ?>" required>
+                                    <input type="text" name="title" id="title" pattern="^[a-zA-Z ]+$" value="<?= $fetch_category['nombre_Categoria']; ?>" required>
 
                                 </div>
                                 <div class="input-field">

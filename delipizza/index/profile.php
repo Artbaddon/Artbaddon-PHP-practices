@@ -40,18 +40,21 @@ if (isset($_POST['submit'])) {
         }
     }
     //Actualizar foto
-    $old_image = $_POST['old_img'];
-    $image = $_FILES['profile-p']['name'];
-    $image = htmlspecialchars($image);
-    $image_tmp_name = $_FILES['profile-p']['tmp_name'];
-    $image_folder = '../uploaded-img/clientes/' . $image;
+    if (!empty($_POST['old_img'])) {
+        $old_image = $_POST['old_img'];
+        $image = $_FILES['profile-p']['name'];
+        $image = htmlspecialchars($image);
+        $image_tmp_name = $_FILES['profile-p']['tmp_name'];
+        $image_folder = '../uploaded-img/clientes/' . $image;
 
-    $update_image = $conn->prepare("UPDATE usuario SET foto = ? WHERE ID_Usuario = ?");
-    $update_image->execute([$image, $user_id]);
-    move_uploaded_file($image_tmp_name, $image_folder);
-    if ($old_image != $image && $old_image != '') {
-        unlink('../uploaded-img/clientes/' . $old_image);
+        $update_image = $conn->prepare("UPDATE usuario SET foto = ? WHERE ID_Usuario = ?");
+        $update_image->execute([$image, $user_id]);
+        move_uploaded_file($image_tmp_name, $image_folder);
+        if ($old_image != $image && $old_image != '') {
+            unlink('../uploaded-img/clientes/' . $old_image);
+        }
     }
+
     //Actualizar contraseña
     $empty_password = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
     $select_old_pass = $conn->prepare("SELECT contraseña_Usuario FROM usuario WHERE ID_Usuario = ?");
@@ -75,10 +78,10 @@ if (isset($_POST['submit'])) {
 
         if ($old_pass != $prev_pass) {
             $warning_msg[] = 'Contraseña anterior incorrecta';
-            echo 'contraseña anterior incorrecta';
+        
         } elseif ($new_pass != $cpass) {
             $warning_msg[] = 'Las contraseñas no coinciden';
-            echo 'las contraseñas no coinciden';
+         
         } else {
             if ($new_pass != $empty_password) {
                 $update_pass = $conn->prepare("UPDATE usuario SET contraseña_Usuario = ? WHERE ID_Usuario = ?");
@@ -93,9 +96,9 @@ if (isset($_POST['submit'])) {
     //Actualizar metodo pago
     $payment_method = $_POST['payment-method'];
     $payment_method = htmlspecialchars($payment_method);
-    if (!empty($payment_method)) {
-        $update_admin = $conn->prepare("UPDATE usuario SET metodo_pago = ? WHERE ID_Usuario = ?");
-        $update_admin->execute([$payment_method, $user_id]);
+    if (!empty($payment_method) and $_POST['submit']) {
+        $update_user = $conn->prepare("UPDATE usuario SET metodo_pago = ? WHERE ID_Usuario = ?");
+        $update_user->execute([$payment_method, $user_id]);
         $success_msg[] = 'metodo de pago actualizado';
     }
 }
@@ -187,9 +190,9 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="input-field">
                         <label for="payment-method">
-                            <select name="payment-method" id="" required>
+                            <select name="payment-method" id="">
 
-                                <option selected value="<?= $fetch_profile['metodo_pago']; ?>"> <?= $fetch_profile['metodo_pago']; ?></option>
+                                <option selected value="">Anterior metodo de pago: <?= $fetch_profile['metodo_pago']; ?></option>
                                 <option value="nequi">nequi</option>
                                 <option value="efectivo">efectivo</option>
                             </select>
@@ -209,7 +212,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="input-field">
                         <label for="profile-p">Imagen De Perfil</label>
-                        <input type="file" name="profile-p" accept=".png, .jpg, .jpeg" title="Debe insertar una imagen" value="<?= $fetch_profile['foto']; ?>">
+                        <input type="file" name="profile-p" accept=".png, .jpg, .jpeg" title="Debe insertar una imagen" required value="<?= $fetch_profile['foto']; ?>">
 
                     </div>
                     <input type="submit" name="submit" value="Actualizar Datos" class="btn">

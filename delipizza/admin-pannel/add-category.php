@@ -63,7 +63,7 @@ if (isset($_POST['publish'])) {
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="input-field">
                         <label for="title">Nombre categoria</label>
-                        <input type="text" name="title" id="title" placeholder="Nombre categoria" maxlength="30" required>
+                        <input type="text" name="title" id="title" pattern="^[a-zA-Z ]+$" placeholder="Nombre categoria" maxlength="30" required>
                     </div>
 
                     <div class="input-field">

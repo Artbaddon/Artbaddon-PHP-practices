@@ -18,10 +18,14 @@
                     <a href="profile.php">Perfil</a>
                 </li>
                 <li>
-                    <div class="bx bxs-user" id="user-btn"></div>
+                    <div class="icon" id="user-btn">
+                        <img src="../image/user-solid-24.png" alt="">
+                    </div>
                 </li>
                 <li>
-                    <div class="cart-btn bx bxs-cart"></div>
+                    <div class=" icon">
+                        <img src="../image/bxs-shopping-bags.png" alt="">
+                    </div>
                 </li>
             </ul>
         </nav>
